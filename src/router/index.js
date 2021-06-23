@@ -1,27 +1,29 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
+import Login from '../components/login.vue'
+import Home from '../components/home.vue'
 
 Vue.use(VueRouter)
 
 const routes = [
-  {
-    path: '/',
-    name: 'Home',
-    component: Home
-  },
-  {
-    path: '/about',
-    name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
-  }
+  // 访问根目录时 路由重定向到登录页
+  { path: '/', redirect: '/login' },
+  { path: '/login', component: Login },
+  { path: '/home', component: Home }
 ]
 
 const router = new VueRouter({
   routes
+})
+
+router.beforeEach((to, form, next) => {
+  // to将要访问的路径 form从哪个路径跳转而来 访问登录页往下放行
+  if (to.path === '/login') next()
+  // 获取sessionStorage里面的token值 看用户有没有登录
+  const tokenStr = window.sessionStorage.getItem('token')
+  // 没有token就跳转到登录页 否则放行
+  if (!tokenStr) return next('/login')
+  next()
 })
 
 export default router
