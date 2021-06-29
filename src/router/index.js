@@ -2,6 +2,8 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Login from '../components/login.vue'
 import Home from '../components/home.vue'
+import Wlecone from '../components/Wlecone.vue'
+import User from '../components/users/User.vue'
 
 Vue.use(VueRouter)
 
@@ -9,7 +11,16 @@ const routes = [
   // 访问根目录时 路由重定向到登录页
   { path: '/', redirect: '/login' },
   { path: '/login', component: Login },
-  { path: '/home', component: Home }
+  {
+    path: '/home',
+    component: Home,
+    redirect: '/wlecone',
+    // 通过 children 属性, 为 /register 添加子路由规则
+    children: [
+      { path: '/wlecone', component: Wlecone },
+      { path: '/users', component: User }
+    ]
+  }
 ]
 
 const router = new VueRouter({

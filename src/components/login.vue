@@ -6,8 +6,8 @@
                 <img src="../assets/logo.png" alt="">
             </div>
             <!-- 表单区域 -->
-            <el-form label-width="0" :model="form" ref="loginFormRef" :rules="loginFormRules" class="form_box">
-                 <el-form-item label="" prop="username">
+            <el-form label-width="0" :model="form" ref="loginFormRef" :rules="addFormRules" class="form_box">
+                <el-form-item label="" prop="username">
                     <el-input v-model="form.username" placeholder="请输账号" prefix-icon="iconfont icon-user"></el-input>
                 </el-form-item>
                 <el-form-item label="" prop="password">
@@ -32,7 +32,7 @@ export default {
         password: ''
       },
       // 表单的数据验证规则对象
-      loginFormRules: {
+      addFormRules: {
         username: [
           { required: true, message: '请输入用户名', trigger: 'blur' },
           { min: 3, max: 12, message: '长度在 3 到 12 个字符', trigger: 'blur' }
