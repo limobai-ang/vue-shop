@@ -4,6 +4,8 @@ import Login from '../components/login.vue'
 import Home from '../components/home.vue'
 import Wlecone from '../components/Wlecone.vue'
 import User from '../components/users/User.vue'
+import Rights from '../components/power/Rights.vue'
+import Roles from '../components/power/Roles.vue'
 
 Vue.use(VueRouter)
 
@@ -18,7 +20,9 @@ const routes = [
     // 通过 children 属性, 为 /register 添加子路由规则
     children: [
       { path: '/wlecone', component: Wlecone },
-      { path: '/users', component: User }
+      { path: '/users', component: User },
+      { path: '/rights', component: Rights },
+      { path: '/roles', component: Roles }
     ]
   }
 ]
