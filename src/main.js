@@ -9,6 +9,7 @@ import './assets/css/global.css'
 // 导入axios
 import axios from 'axios'
 import { isEmail } from './assets/js/validata.js'
+import treeTable from 'vue-table-with-tree-grid'
 
 // 配置请求的基准URL
 axios.defaults.baseURL = 'http://127.0.0.1:8888/api/private/v1/'
@@ -23,6 +24,7 @@ Vue.prototype.$http = axios
 Vue.prototype.$isEmail = isEmail
 
 Vue.config.productionTip = false
+Vue.component('tree-table', treeTable)
 
 new Vue({
   router,
