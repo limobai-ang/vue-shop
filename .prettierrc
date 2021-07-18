@@ -2,4 +2,6 @@
     "semi": false,
     "singleQuote": true,
     "prettier.bracketSpacing": true,
+    "bracketSpacing": true,
+    "trailingComma": "none"
 }

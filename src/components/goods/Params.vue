@@ -233,10 +233,10 @@ export default {
       const { data: res } = await this.$http.get(`/categories/${this.cateId}/attributes`, { params: { sel: 'many' } })
       // 抛出错误情况
       if (res.meta.status !== 200) return this.$message.error('分参数取失败')
-      res.data.forEach(itme => {
-        itme.attr_vals = itme.attr_vals ? itme.attr_vals.split(' ') : []
-        itme.inputVisible = false
-        itme.inputValue = ''
+      res.data.forEach(item => {
+        item.attr_vals = item.attr_vals ? item.attr_vals.split(' ') : []
+        item.inputVisible = false
+        item.inputValue = ''
       })
       this.manyTableData = res.data
     },
