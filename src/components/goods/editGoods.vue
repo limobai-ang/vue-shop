@@ -185,8 +185,6 @@ export default {
 h3 {
   text-align: center;
 }
-.addGoods {
-}
 .upload-demo {
   margin: 0 auto;
   width: 80%;
