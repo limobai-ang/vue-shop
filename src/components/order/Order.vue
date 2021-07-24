@@ -35,10 +35,8 @@
           </template>
         </el-table-column>
         <el-table-column width="140px" label="操作">
-          <template>
             <el-button size="mini" type="primary" icon="el-icon-edit" @click="editBtn"></el-button>
             <el-button size="mini" type="success" icon="el-icon-location" @click="viewBtn"></el-button>
-          </template>
         </el-table-column>
       </el-table>
       <el-pagination
@@ -169,7 +167,7 @@ export default {
       // if (res.meta.status !== 200) return this.$message.error('查询物流信息失败')
       // console.log(res)
       this.activities = [{
-        content: '活动按期开始',
+        content: '开始发货',
         timestamp: '2018-04-15'
       }, {
         content: '通过审核',
